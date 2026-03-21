@@ -1,0 +1,8 @@
+{
+  "name": "warhawk-extension",
+  "channel": "manual-dev",
+  "currentVersion": "0.0.0",
+  "releaseDate": null,
+  "artifacts": [],
+  "notes": "Manual sideload via chrome://extensions during development."
+}

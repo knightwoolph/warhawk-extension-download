@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Secrets / signing artifacts
+*.pem
+*.key
+
+# Build artifacts
+*.zip
+*.crx
+
+# Temporary unpacked folders
+dist/
+tmp/
