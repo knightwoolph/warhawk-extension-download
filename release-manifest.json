@@ -1,16 +1,17 @@
 {
   "name": "warhawk-extension",
   "channel": "manual-dev",
-  "currentVersion": "1.2.0",
+  "currentVersion": "1.3.0",
   "releaseDate": "2026-03-21",
   "artifacts": [
     {
-      "name": "warhawk-extension-v1.2.0.zip",
-      "url": "https://github.com/knightwoolph/warhawk-extension-download/releases/download/v1.2.0/warhawk-extension-v1.2.0.zip",
+      "name": "warhawk-extension-v1.3.0.zip",
+      "url": "https://github.com/knightwoolph/warhawk-extension-download/releases/download/v1.3.0/warhawk-extension-v1.3.0.zip",
       "installMode": "load-unpacked-after-unzip"
     }
   ],
   "changelog": {
+    "1.3.0": "First-time auth flow — popup now shows login form for new installs, email/password auth via Supabase, 3-second timeout with actionable error view, version from manifest. Removed stale Rabbit/Snail/Pause controls.",
     "1.2.0": "Added heartbeat reporter — extension upserts runtime status to Supabase every 60s via Chrome alarm. Web app can now show truthful connected/stale/unknown status on /setup and /queue pages.",
     "1.1.0": "Added orchestrator tab (anti-ban runtime surface), watchdog timeout (90s stuck-task detection), session stats broadcasting, shared runtime status, crash recovery. Offscreen keepalive removed — alarm polling + message traffic keep the service worker alive during active sessions.",
     "1.0.0": "Initial release — background worker, content script, popup with queue controls."
