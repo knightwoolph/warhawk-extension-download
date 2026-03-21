@@ -1,17 +1,18 @@
 {
   "name": "warhawk-extension",
   "channel": "manual-dev",
-  "currentVersion": "1.1.0",
+  "currentVersion": "1.2.0",
   "releaseDate": "2026-03-21",
   "artifacts": [
     {
-      "name": "warhawk-extension-1.1.0.zip",
-      "url": "https://github.com/knightwoolph/warhawk-extension-download/releases/download/v1.1.0/warhawk-extension-1.1.0.zip",
+      "name": "warhawk-extension-v1.2.0.zip",
+      "url": "https://github.com/knightwoolph/warhawk-extension-download/releases/download/v1.2.0/warhawk-extension-v1.2.0.zip",
       "installMode": "load-unpacked-after-unzip"
     }
   ],
   "changelog": {
-    "1.1.0": "Added orchestrator tab (anti-ban runtime surface), offscreen keepalive, watchdog timeout, session stats broadcasting.",
+    "1.2.0": "Added heartbeat reporter — extension upserts runtime status to Supabase every 60s via Chrome alarm. Web app can now show truthful connected/stale/unknown status on /setup and /queue pages.",
+    "1.1.0": "Added orchestrator tab (anti-ban runtime surface), watchdog timeout (90s stuck-task detection), session stats broadcasting, shared runtime status, crash recovery. Offscreen keepalive removed — alarm polling + message traffic keep the service worker alive during active sessions.",
     "1.0.0": "Initial release — background worker, content script, popup with queue controls."
   },
   "notes": "Manual sideload via chrome://extensions. Download the zip, unzip it, then use Load Unpacked on the extracted folder. The orchestrator tab opens automatically when posting begins."
