@@ -1,14 +1,18 @@
 {
   "name": "warhawk-extension",
   "channel": "manual-dev",
-  "currentVersion": "1.0.0",
+  "currentVersion": "1.1.0",
   "releaseDate": "2026-03-21",
   "artifacts": [
     {
-      "name": "warhawk-extension-1.0.0.zip",
-      "url": "https://github.com/knightwoolph/warhawk-extension-download/releases/download/v1.0.0/warhawk-extension-1.0.0.zip",
+      "name": "warhawk-extension-1.1.0.zip",
+      "url": "https://github.com/knightwoolph/warhawk-extension-download/releases/download/v1.1.0/warhawk-extension-1.1.0.zip",
       "installMode": "load-unpacked-after-unzip"
     }
   ],
-  "notes": "Manual sideload via chrome://extensions during development. Download the zip, unzip it locally, and use Load unpacked on the extracted dist folder."
+  "changelog": {
+    "1.1.0": "Added orchestrator tab (anti-ban runtime surface), offscreen keepalive, watchdog timeout, session stats broadcasting.",
+    "1.0.0": "Initial release — background worker, content script, popup with queue controls."
+  },
+  "notes": "Manual sideload via chrome://extensions. Download the zip, unzip it, then use Load Unpacked on the extracted folder. The orchestrator tab opens automatically when posting begins."
 }
