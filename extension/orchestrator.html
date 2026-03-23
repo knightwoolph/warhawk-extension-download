@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warhawk Orchestrator</title>
+  <script type="module" crossorigin src="/orchestrator/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/chunks/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/orchestrator/orchestrator.css">
+</head>
+<body>
+  <div class="orchestrator">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1 class="brand">WARHAWK</h1>
+        <span class="brand-sub">Orchestrator</span>
+      </div>
+      <div class="header-right">
+        <span id="connection-badge" class="badge badge--disconnected">Connecting...</span>
+        <span id="auth-badge" class="badge badge--disconnected">--</span>
+      </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+      <div class="stat">
+        <span class="stat-value" id="stat-posted">0</span>
+        <span class="stat-label">Posted</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value stat-value--error" id="stat-failed">0</span>
+        <span class="stat-label">Failed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-deleted">0</span>
+        <span class="stat-label">Deleted</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-pending">--</span>
+        <span class="stat-label">Pending</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-mode">--</span>
+        <span class="stat-label">Mode</span>
+      </div>
+    </section>
+
+    <section class="runtime-controls">
+      <div class="section-header">
+        <h2 class="section-title">Runtime Controls</h2>
+      </div>
+      <div class="toggle-group">
+        <button id="mode-snail" class="toggle-btn" type="button">Snail</button>
+        <button id="mode-rabbit" class="toggle-btn" type="button">Rabbit</button>
+      </div>
+    </section>
+
+    <!-- Current Task -->
+    <section class="current-task" id="current-task-section">
+      <div class="section-header">
+        <h2 class="section-title">Current Task</h2>
+        <span id="task-status" class="task-status">Idle</span>
+      </div>
+      <div id="task-detail" class="task-detail">
+        <p class="task-idle">Waiting for queue tasks...</p>
+      </div>
+      <div id="cooldown-bar" class="cooldown-bar" style="display: none;">
+        <div id="cooldown-fill" class="cooldown-fill"></div>
+        <span id="cooldown-text" class="cooldown-text">Next post in --s</span>
+      </div>
+    </section>
+
+    <!-- Event Log -->
+    <section class="log-section">
+      <div class="section-header">
+        <h2 class="section-title">Activity Log</h2>
+        <button id="clear-log" class="clear-btn">Clear</button>
+      </div>
+      <div id="event-log" class="event-log">
+        <div class="log-entry log-entry--info">
+          <span class="log-time">--:--:--</span>
+          <span class="log-msg">Orchestrator tab opened. Waiting for status...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Warhawk v1.1.0</span>
+      <span id="last-update">--</span>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Warhawk",
+  "version": "1.7.1",
+  "description": "Facebook Marketplace posting automation — browser runtime",
+  "permissions": [
+    "storage",
+    "alarms",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.facebook.com/marketplace/*",
+    "https://*.supabase.co/*"
+  ],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.facebook.com/marketplace/create/*"],
+      "js": ["content/index.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.facebook.com/marketplace/item/*"],
+      "js": ["delete-handler/index.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://warhawk-platform.vercel.app/*",
+        "http://localhost:3000/*"
+      ],
+      "js": ["bridge/index.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}

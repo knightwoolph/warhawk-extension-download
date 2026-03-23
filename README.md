@@ -1,59 +1,42 @@
-# Warhawk Extension Download
+# Warhawk Extension
 
-Distribution repo for the Warhawk Chrome extension.
+Chrome extension for Facebook Marketplace posting automation.
 
-This repo is separate from the main web platform on purpose. The web app is the system of record and operator console. The extension is a separate browser runtime that operators download and install.
+## Install
 
-## Why This Repo Exists
-- keep release packaging separate from the web app repo
-- host install docs and onboarding docs in one place
-- support manual developer-mode installs through `chrome://extensions`
-- prepare a clean handoff path from the web platform download surface to the extension package
+1. Download this repo (Code > Download ZIP, or `git clone`)
+2. Go to `chrome://extensions`
+3. Enable **Developer mode** (top right)
+4. Click **Load unpacked**
+5. Select the `extension/` folder from this repo
+6. Done — the Warhawk icon appears in your toolbar
 
-## Source Repositories
-- Web platform and current extension source:
-  - `C:\Users\eumst\project\warhawk-platform`
-- Legacy Spartan / Ryan Bot source to mine:
-  - `C:\Users\eumst\project\Ryan Bot`
-  - `C:\Users\eumst\project\Ryan Bot\extension`
+## Update
 
-## Runtime Model
-Warhawk should use this browser runtime shape:
+1. Pull latest (`git pull`) or re-download
+2. Go to `chrome://extensions`
+3. Click the reload icon on the Warhawk card
 
-1. web app
-2. orchestrator tab
-3. Chrome extension
-4. Facebook tab
+## Current Version
 
-The separate orchestrator tab is intentional. It keeps the runtime visible, operator-observable, and closer to a human browser workflow.
+**v1.7.1** — 2026-03-22
 
-## Repo Contents
-- `docs/INSTALL.md`
-  - manual install steps for development and operator testing
-- `docs/ONBOARDING.md`
-  - onboarding sequence the web platform should mirror
-- `docs/ARCHITECTURE.md`
-  - browser runtime design and anti-ban rationale
-- `docs/WEB-PLATFORM-INTEGRATION.md`
-  - what the web app must expose for download, setup, and support
-- `release-manifest.json`
-  - placeholder manifest for tracking current release metadata
-- `releases/README.md`
-  - release storage expectations
+See [release-manifest.json](release-manifest.json) for full changelog.
 
-## Current Delivery Assumption
-- development install is manual via `chrome://extensions`
-- operator onboarding should be initiated from the Warhawk web app
-- Chrome Web Store distribution is future scope, not required for the first Warhawk rollout
+## Structure
 
-## Initial Release Workflow
-1. Build the extension from the main Warhawk source repo.
-2. Produce a versioned package or unpacked folder.
-3. Publish release notes and metadata here.
-4. Point the web platform download/install docs to the new release.
+```
+extension/          <-- Load this folder in Chrome
+  manifest.json
+  background/       Service worker (queue processing, heartbeat)
+  content/          Form detector + filler (injected into FB Marketplace)
+  delete-handler/   Delete automation (injected into FB listing pages)
+  popup/            Extension popup (login, status)
+  orchestrator/     Orchestrator tab (anti-ban runtime surface)
+  bridge/           SaaS <-> extension communication bridge
+  icons/            Extension icons
+```
 
-## Next Work
-- rebrand Spartan assets to Warhawk
-- rewire the extension away from Electron assumptions
-- define the orchestrator tab behavior cleanly
-- add the web-platform download and onboarding route
+## Source
+
+Built from [warhawk-platform/extension](https://github.com/knightwoolph/warhawk-platform/tree/master/extension).
