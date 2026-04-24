@@ -1,11 +1,13 @@
 {
   "name": "warhawk-extension",
   "channel": "manual-dev",
-  "currentVersion": "1.7.1",
-  "releaseDate": "2026-03-22",
+  "currentVersion": "1.9.4",
+  "releaseDate": "2026-04-24",
   "installMode": "load-unpacked",
   "installPath": "extension/",
+  "packagedZip": "releases/warhawk-extension-v1.9.4.zip",
   "changelog": {
+    "1.9.4": "v5.0 Listing Management Overhaul — photo_selection_mode enum, strict fb_listing_id delete with NULL-ID recovery, snapshot refresh flow (new-row-per-repost with FB-live scrape), hard version gate for snapshot-dependent flows, telemetry + /analytics/telemetry dashboard. Codex patches: forced Marketplace category to 'Miscellaneous' everywhere including snapshot reposts, hardened Price/Category detection for updated FB labels, combined DataTransfer for photos+video single-input FB flows. Ships with v5.0 pre-deploy fixes (Scan B): queue retry version gate, snapshot quality gate, fire-and-forget telemetry, retry status guard, LISTING_STATUSES sync, zero-stride backfill repair.",
     "1.7.1": "Rewrite form-filler and form-detector from Spartan extension patterns — reactType() with _valueTracker reset, humanClick() with full mouse event sequence, findFBInput() with label nesting and combobox guards. Fixes category dropdown crash, Illegal invocation errors, and element-not-found for title/price.",
     "1.7.0": "Delete pipeline, posting history tracking, TypeScript strict null fixes.",
     "1.3.0": "First-time auth flow — popup login form, email/password auth via Supabase.",
@@ -13,5 +15,5 @@
     "1.1.0": "Orchestrator tab, watchdog timeout, session stats, crash recovery.",
     "1.0.0": "Initial release — background worker, content script, popup with queue controls."
   },
-  "notes": "No zip needed. Clone this repo or download it, then load the 'extension/' folder unpacked at chrome://extensions."
+  "notes": "Install options: (1) Clone this repo + load 'extension/' unpacked at chrome://extensions, or (2) Download releases/warhawk-extension-v1.9.4.zip + unzip + load unpacked. CWS listing pending review."
 }
