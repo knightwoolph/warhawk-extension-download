@@ -1,17 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Warhawk",
-  "version": "1.7.1",
+  "version": "1.9.4",
   "description": "Facebook Marketplace posting automation — browser runtime",
   "permissions": [
     "storage",
     "alarms",
     "tabs",
-    "activeTab"
+    "activeTab",
+    "scripting"
   ],
   "host_permissions": [
-    "https://www.facebook.com/marketplace/*",
-    "https://*.supabase.co/*"
+    "https://www.facebook.com/*",
+    "https://pjjzskcjynsgdvnunyxf.supabase.co/*"
   ],
   "background": {
     "service_worker": "background/index.js",
@@ -26,6 +27,16 @@
     {
       "matches": ["https://www.facebook.com/marketplace/item/*"],
       "js": ["delete-handler/index.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.facebook.com/marketplace/item/*"],
+      "js": ["scrape-marketplace/index.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.facebook.com/marketplace/item/*"],
+      "js": ["snapshot-scraper/index.js"],
       "run_at": "document_idle"
     },
     {
